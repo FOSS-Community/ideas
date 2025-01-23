@@ -5,6 +5,7 @@ import { Badges } from "@/components/ui/badges";
 import { Search, Filter } from "lucide-react";
 import { Badge } from "@/components/Badge";
 import { motion } from 'framer-motion';
+import IdeasSkeleton from './IdeaSkeleton';
 
 interface Idea {
   id: string;
@@ -74,12 +75,7 @@ const IdeasPlatform = () => {
     return (
       <div className="min-h-screen">
         <div className="relative z-10">
-          <div className="min-h-screen bg-black flex items-center justify-center">
-            <div className="space-y-4 text-center">
-              <div className="w-12 h-12 border-4 border-green-400 border-t-transparent rounded-full animate-spin mx-auto" />
-              <p className="text-green-400 animate-pulse">Loading ideas...</p>
-            </div>
-          </div>
+          <IdeasSkeleton />
         </div>
       </div>
     );
