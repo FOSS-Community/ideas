@@ -32,5 +32,16 @@ export default function IdeasPage() {
   )
 }
 
-
+export interface Idea {
+  id: string;
+  title: string;
+  description: string;
+  difficulty: string;
+  timeframe: string;
+  prize: string;
+  status: string;
+  category: string[];
+  comments: number;
+  tags: string[];
+}
 

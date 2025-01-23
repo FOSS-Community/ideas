@@ -5,6 +5,13 @@ const base = new Airtable({
   apiKey: process.env.AIRTABLE_API_KEY
 }).base(process.env.AIRTABLE_BASE_ID);
 
+if (!process.env.AIRTABLE_BASE_ID){
+  console.error('Error initializing Airtable:', error);
+  return NextResponse.json(
+    { error: 'Failed to initialize Airtable' },
+    { status: 500 }
+)}
+
 export async function GET() {
   try {
     const records = await base('Ideas').select({

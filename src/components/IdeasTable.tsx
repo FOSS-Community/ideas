@@ -6,16 +6,26 @@ import { Search, Filter } from "lucide-react";
 import { Badge } from "@/components/Badge";
 import { motion } from 'framer-motion';
 
+interface Idea {
+  id: string;
+  title: string;
+  description: string;
+  category: string[];
+  prize: number;
+  difficulty: string;
+}
+
 
 const IdeasPlatform = () => {
-  const [ideas, setIdeas] = useState([]);
+  const [ideas, setIdeas] = useState<Idea[]>([]);
   const [loading, setLoading] = useState(true);
-  const [error, setError] = useState(null);
+  const [error, setError] = useState<string | null>(null);
   const [activeCategory, setActiveCategory] = useState('All');
   const [searchQuery, setSearchQuery] = useState('');
   const [view, setView] = useState('grid');
 
   useEffect(() => {
+    setLoading(true);
     const fetchIdeas = async () => {
       try {
         const response = await fetch('/api/airtable');
@@ -27,11 +37,14 @@ const IdeasPlatform = () => {
         
         setIdeas(data);
         setLoading(false);
-      } catch (err) {
+      } catch (err:any) {
         console.error('Error details:', err);
         setError(err.message);
         setLoading(false);
+      } finally {
+        setLoading(false);
       }
+  
     };
 
     fetchIdeas();
@@ -59,10 +72,14 @@ const IdeasPlatform = () => {
 
   if (loading) {
     return (
-      <div className="min-h-screen bg-black flex items-center justify-center">
-        <div className="space-y-4">
-          <div className="w-12 h-12 border-4 border-green-400 border-t-transparent rounded-full animate-spin" />
-          <p className="text-green-400 animate-pulse">Loading ideas...</p>
+      <div className="min-h-screen">
+        <div className="relative z-10">
+          <div className="min-h-screen bg-black flex items-center justify-center">
+            <div className="space-y-4 text-center">
+              <div className="w-12 h-12 border-4 border-green-400 border-t-transparent rounded-full animate-spin mx-auto" />
+              <p className="text-green-400 animate-pulse">Loading ideas...</p>
+            </div>
+          </div>
         </div>
       </div>
     );
@@ -70,10 +87,14 @@ const IdeasPlatform = () => {
 
   if (error) {
     return (
-      <div className="min-h-screen bg-black flex items-center justify-center">
-        <Card className="bg-red-500/10 border-red-500/20 p-6">
-          <p className="text-red-400">Error: {error}</p>
-        </Card>
+      <div className="min-h-screen">
+        <div className="relative z-10">
+          <div className="min-h-screen bg-black flex items-center justify-center">
+            <Card className="bg-red-500/10 border-red-500/20 p-6">
+              <p className="text-red-400">Error: {error}</p>
+            </Card>
+          </div>
+        </div>
       </div>
     );
   }
