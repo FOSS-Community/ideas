@@ -1,5 +1,15 @@
-// components/ui/badge.jsx
-export const Badges = ({ children, className = '', variant = 'default' }) => {
+import React, { ReactNode } from 'react';
+
+
+type BadgeVariant = 'default' | 'outline' | 'secondary';
+
+interface BadgesProps {
+  children: ReactNode; 
+  className?: string; 
+  variant?: BadgeVariant; 
+} 
+
+export const Badges = ({ children, className = '', variant = 'default' } : BadgesProps) => {
     const baseClasses = "inline-flex items-center rounded-full px-3 py-1 text-sm font-medium transition-colors";
     
     const variants = {

@@ -4,7 +4,7 @@ import { Card } from "@/components/ui/card";
 import { Skeleton } from "@/components/ui/skeleton";
 import { Search, Filter } from "lucide-react";
 
-const IdeasSkeleton = () => {
+const PageSkeleton = () => {
   return (
     <div className="min-h-screen">
       <div className="relative z-10">
@@ -86,4 +86,4 @@ const IdeasSkeleton = () => {
   );
 };
 
-export default IdeasSkeleton;
+export default PageSkeleton;
