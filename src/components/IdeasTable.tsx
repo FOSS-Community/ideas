@@ -138,15 +138,15 @@ const IdeasPlatform = () => {
     return pageItems;
   };
 
-  if (loading) {
-    return (
-      <div className="min-h-screen">
-        <div className="relative z-10">
-          <PageSkeleton />
-        </div>
-      </div>
-    );
-  }
+  // if (loading) {
+  //   return (
+  //     <div className="min-h-screen">
+  //       <div className="relative z-10">
+  //         <PageSkeleton />
+  //       </div>
+  //     </div>
+  //   );
+  // }
 
   if (error) {
     return (
@@ -247,7 +247,7 @@ const IdeasPlatform = () => {
                 </button>
               </div>
 
-              {isSearching ? (
+              {isSearching || loading ? (
                 <GridSkeleton />
               ) : (
                 view === 'grid' ? (
