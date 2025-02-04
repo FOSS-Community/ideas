@@ -14,7 +14,6 @@ import {
   PaginationPrevious,
 } from "@/components/ui/pagination"
 import GridSkeleton from './GridSkeleton';
-import PageSkeleton from './PageSkeleton';
 
 interface Idea {
   id: string;
@@ -137,16 +136,6 @@ const IdeasPlatform = () => {
     }
     return pageItems;
   };
-
-  // if (loading) {
-  //   return (
-  //     <div className="min-h-screen">
-  //       <div className="relative z-10">
-  //         <PageSkeleton />
-  //       </div>
-  //     </div>
-  //   );
-  // }
 
   if (error) {
     return (

@@ -15,18 +15,18 @@ const GridSkeleton = () => {
             <div className="flex justify-between items-start mb-4">
               <div
                 className={cn(
-                  "animate-pulse rounded-md bg-muted h-6 w-1/2"
+                  "animate-pulse rounded-md bg-neutral-300 h-6 w-1/2"
                 )}
               />
               <div
                 className={cn(
-                  "animate-pulse rounded-md bg-muted h-6 w-16"
+                  "animate-pulse rounded-md bg-neutral-300 h-6 w-16"
                 )}
               />
             </div>
             <div
               className={cn(
-                "animate-pulse rounded-md bg-muted h-4 w-full mb-4"
+                "animate-pulse rounded-md bg-neutral-300 h-4 w-full mb-4"
               )}
             />
             <div className="flex flex-wrap gap-2 mb-4">
@@ -34,14 +34,14 @@ const GridSkeleton = () => {
                 <div
                   key={catIndex}
                   className={cn(
-                    "animate-pulse rounded-md bg-muted h-6 w-16"
+                    "animate-pulse rounded-md bg-neutral-300 h-6 w-16"
                   )}
                 />
               ))}
             </div>
             <div
               className={cn(
-                "animate-pulse rounded-md bg-muted h-6 w-16 ml-auto"
+                "animate-pulse rounded-md bg-neutral-300 h-6 w-16 ml-auto"
               )}
             />
           </Card>
